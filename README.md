@@ -4,11 +4,6 @@
 ## AIM
 To develop a Django Application to store and retrieve data from a E-Commerce Website Database for Amazon or Flipkart using Object Relational Mapping(ORM).
 
-## ENTITY RELATIONSHIP DIAGRAM
-<img width="679" height="385" alt="image" src="https://github.com/user-attachments/assets/7b66a19e-f2d4-43d0-8061-84c1e9b389f0" />
-
-
-
 ## DESIGN STEPS
 
 ### STEP 1:
@@ -37,23 +32,19 @@ Execute Django admin using localhost and create details for 10 entries
 
 ## PROGRAM
     from django.db import models
-
-    class car(models.Model):
-        vin = models.CharField(max_length=20, unique=True)
-        make = models.CharField(max_length=50)
-        model = models.CharField(max_length=50)
-        year = models.IntegerField()
-        price = models.DecimalField(max_digits=12, decimal_places=2)
-        mileage = models.IntegerField(max_length=30)
-        color = models.CharField(max_length=30)
-        available = models.BooleanField(default=True)
-        created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f"{self.make}{self.model}({self.year})"
-
+    from django.contrib import admin
+    class Employee (models.Model):
+        eid=models.CharField(max_length=20,primary_key="eid")
+        name=models.CharField(max_length=100)
+        salary=models.IntegerField()
+        age=models.IntegerField()
+        email=models.EmailField()
+ 
+    class EmployeeAdmin(admin.ModelAdmin):
+        list_display=('eid','name','salary','age','email')
 ## OUTPUT
-<img width="1919" height="946" alt="image" src="https://github.com/user-attachments/assets/066e064d-d598-4821-b722-e77584523300" />
+<img width="1919" height="988" alt="image" src="https://github.com/user-attachments/assets/cc689efc-82b7-48aa-902b-d5b54f924c23" />
+
 
 
 
